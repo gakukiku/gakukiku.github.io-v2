@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Review - Gaku Kikuchi ePortfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+            display: inline-block;
+            margin: 2rem 0;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin: 2rem 0;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin: 2rem 0;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            color: #667eea;
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .content h3 {
+            color: #764ba2;
+            margin: 1.5rem 0 1rem;
+            font-size: 1.3rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .content ul {
+            margin: 1rem 0 1.5rem 2rem;
+        }
+
+        .content li {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .video-container {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .analysis-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .analysis-section {
+            background: rgba(118, 75, 162, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .analysis-section h4 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .analysis-section ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .current-state {
+            background: rgba(220, 53, 69, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid #dc3545;
+        }
+
+        .improvement-opportunities {
+            background: rgba(255, 193, 7, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid #ffc107;
+        }
+
+        .enhancement-directions {
+            background: rgba(40, 167, 69, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid #28a745;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 2rem;
+            }
+            
+            .video-container {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Gaku Kikuchi</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="software-design.html">Software Design</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="database.html">Database</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <a href="index.html" class="back-button">← Back to Portfolio</a>
+        
+        <section class="hero">
+            <h1>Code Review</h1>
+            <p>Analysis of CS 360 restaurant app project and identification of enhancement opportunities for CS 499</p>
+        </section>
+
+        <section class="content">
+            <h2>About the Code Review</h2>
+            <p>This code review was conducted as part of CS 499 Milestone One, analyzing a restaurant mobile app originally created as a team project in CS 360: Mobile Architecture and Programming. My primary responsibility in the original project was UI design and implementation, including the splash screen, login interface, and registration components. The review identifies the current state of the application and explores opportunities for enhancement across three key areas: Software Design & Engineering, Algorithms & Data Structures, and Database Management.</p>
+
+            <div class="video-container">
+                <h2 style="color: #667eea; margin-bottom: 1rem;">Code Review Video</h2>
+                <div style="text-align: center; margin: 2rem 0;">
+                    <iframe width="800" height="450" 
+                            src="https://www.youtube.com/embed/2pR28ge8K80" 
+                            title="CS 499 Code Review - Restaurant App Analysis"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            style="max-width: 100%; border-radius: 10px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);">
+                    </iframe>
+                    <p style="margin-top: 1rem; font-size: 1rem; color: #666;">
+                        Comprehensive walkthrough of the CS 360 restaurant app codebase, analyzing existing functionality and outlining enhancement strategies for CS 499.
+                    </p>
+                </div>
+            </div>
+
+            <h2>Original Project Analysis (CS 360)</h2>
+            
+            <div class="current-state">
+                <h3 style="color: #dc3545; margin-bottom: 1.5rem;">Current Implementation</h3>
+                <ul>
+                    <li><strong>UI Design Implementation:</strong> Successfully designed and implemented splash screen, login interface, and registration components using React Native</li>
+                    <li><strong>Authentication Integration:</strong> Basic Firebase Authentication integration for user sign-in and registration</li>
+                    <li><strong>Component Structure:</strong> Clean component hierarchy following React Native best practices</li>
+                    <li><strong>Mobile-First Design:</strong> Responsive design optimized for mobile devices</li>
+                    <li><strong>Team Collaboration:</strong> Worked effectively within team structure, focusing on UI/UX responsibilities</li>
+                </ul>
+            </div>
+
+            <div class="improvement-opportunities">
+                <h3 style="color: #ffc107; margin-bottom: 1.5rem;">Identified Areas for Enhancement</h3>
+                <ul>
+                    <li><strong>Limited Functionality:</strong> Basic app structure provides foundation for additional features</li>
+                    <li><strong>Input Validation:</strong> Opportunities to implement comprehensive form validation and error handling</li>
+                    <li><strong>User Experience:</strong> Potential for enhanced UI feedback, accessibility features, and social login integration</li>
+                    <li><strong>Data Management:</strong> Simple Firebase structure could be expanded for more complex data relationships</li>
+                    <li><strong>Performance Optimization:</strong> Room for algorithm optimization in search and data processing</li>
+                </ul>
+            </div>
+
+            <h2>Enhancement Strategy for CS 499</h2>
+            
+            <div class="analysis-sections">
+                <div class="analysis-section">
+                    <h4>Software Design & Engineering</h4>
+                    <ul>
+                        <li>Expand UI functionality with reservation system design</li>
+                        <li>Implement comprehensive input validation</li>
+                        <li>Add accessibility features and improved error handling</li>
+                        <li>Design social login integration architecture</li>
+                        <li>Enhance user experience with advanced UI components</li>
+                    </ul>
+                </div>
+                <div class="analysis-section">
+                    <h4>Algorithms & Data Structures</h4>
+                    <ul>
+                        <li>Analyze current linear search operations</li>
+                        <li>Design efficient search and filtering algorithms</li>
+                        <li>Plan optimization strategies for mobile performance</li>
+                        <li>Implement validation algorithms and data processing</li>
+                        <li>Develop performance monitoring and improvement strategies</li>
+                    </ul>
+                </div>
+                <div class="analysis-section">
+                    <h4>Database Management</h4>
+                    <ul>
+                        <li>Evaluate current Firebase integration</li>
+                        <li>Design comprehensive database architecture</li>
+                        <li>Plan migration to SQLite for improved control</li>
+                        <li>Implement secure data management practices</li>
+                        <li>Create normalized database structure with proper relationships</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Review Methodology</h2>
+            <p>The code review followed a systematic approach to evaluate the existing CS 360 implementation:</p>
+            
+            <h3>Analysis Framework</h3>
+            <ul>
+                <li><strong>Functionality Assessment:</strong> Evaluated current features and identified gaps</li>
+                <li><strong>Code Quality Review:</strong> Analyzed structure, organization, and best practices adherence</li>
+                <li><strong>Performance Considerations:</strong> Identified potential bottlenecks and optimization opportunities</li>
+                <li><strong>Security Evaluation:</strong> Assessed current security measures and improvement needs</li>
+                <li><strong>Enhancement Planning:</strong> Developed strategic approach for CS 499 improvements</li>
+            </ul>
+
+            <h3>Key Findings</h3>
+            <ul>
+                <li><strong>Strong Foundation:</strong> Well-structured React Native implementation provides solid base for expansion</li>
+                <li><strong>Focused Implementation:</strong> Clear UI design demonstrates understanding of mobile development principles</li>
+                <li><strong>Growth Potential:</strong> Architecture supports addition of complex features and functionality</li>
+                <li><strong>Team Integration:</strong> Successful collaboration within team structure while maintaining code quality</li>
+            </ul>
+
+            <div class="enhancement-directions">
+                <h3 style="color: #28a745; margin-bottom: 1.5rem;">CS 499 Enhancement Results</h3>
+                <p>Based on this code review analysis, the following enhancements were pursued in CS 499:</p>
+                <ul>
+                    <li><strong>Database Enhancement:</strong> Successfully implemented comprehensive SQLite database with 9 normalized tables, security features, and optimized queries</li>
+                    <li><strong>Software Design Planning:</strong> Developed detailed architecture plans for reservation system, review functionality, and enhanced user experience</li>
+                    <li><strong>Algorithm Analysis:</strong> Conducted thorough performance analysis and developed optimization strategies for search and filtering operations</li>
+                </ul>
+            </div>
+
+            <h2>Professional Development Impact</h2>
+            <p>Conducting this code review significantly enhanced my professional development by:</p>
+            <ul>
+                <li><strong>Critical Analysis Skills:</strong> Learning to objectively evaluate existing code and identify improvement opportunities</li>
+                <li><strong>Strategic Planning:</strong> Developing comprehensive enhancement strategies based on systematic analysis</li>
+                <li><strong>Technical Communication:</strong> Practicing clear documentation and presentation of technical findings</li>
+                <li><strong>Growth Mindset:</strong> Understanding that initial implementations provide foundation for continuous improvement</li>
+            </ul>
+
+            <h3>Connection to Career Goals</h3>
+            <p>The skills demonstrated in this code review directly support my career goals in IT infrastructure consulting:</p>
+            <ul>
+                <li><strong>System Analysis:</strong> Ability to evaluate existing systems and identify enhancement opportunities</li>
+                <li><strong>Strategic Thinking:</strong> Developing comprehensive improvement plans based on thorough analysis</li>
+                <li><strong>Client Communication:</strong> Skills in presenting technical analysis in accessible, actionable formats</li>
+                <li><strong>Continuous Improvement:</strong> Mindset focused on ongoing optimization and enhancement</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>This code review successfully analyzed the CS 360 restaurant app project, identifying both strengths in the current implementation and opportunities for significant enhancement. The UI-focused implementation provided a solid foundation that supported extensive expansion in CS 499, particularly in database architecture, security implementation, and performance optimization planning.</p>
+
+            <p>The systematic review process established clear direction for the subsequent CS 499 enhancements, resulting in successful database implementation and comprehensive planning for software design and algorithm optimization. This experience demonstrates the value of thorough analysis in guiding effective software development and enhancement strategies.</p>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
