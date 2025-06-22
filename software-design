@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Design & Engineering - Gaku Kikuchi ePortfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+            display: inline-block;
+            margin: 2rem 0;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin: 2rem 0;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin: 2rem 0;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            color: #667eea;
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .content h3 {
+            color: #764ba2;
+            margin: 1.5rem 0 1rem;
+            font-size: 1.3rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .content ul {
+            margin: 1rem 0 1.5rem 2rem;
+        }
+
+        .content li {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .enhancement-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .enhancement-box {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .enhancement-box h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skills-showcase {
+            background: rgba(118, 75, 162, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .skills-showcase h3 {
+            color: #764ba2;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-snippet {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 2rem;
+            }
+            
+            .enhancement-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Gaku Kikuchi</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="algorithms.html">Algorithms</a></li>
+                <li><a href="database.html">Database</a></li>
+                <li><a href="code-review.html">Code Review</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <a href="index.html" class="back-button">← Back to Portfolio</a>
+        
+        <section class="hero">
+            <h1>Software Design & Engineering</h1>
+            <p>Restaurant Mobile App Enhancement Planning - Comprehensive architecture design and feature development roadmap</p>
+        </section>
+
+        <section class="content">
+            <h2>About the Artifact</h2>
+            <p>The artifact I selected is a mobile restaurant information app created in the CS 360 course, "Mobile Architecture and Programming." It was built using React Native and Firebase. The app allows users to view restaurant lists, see menu items, and log in. I designed the user interface and implemented the main screens.</p>
+
+            <p>I chose this artifact because it shows my ability to create a user-friendly mobile app and connect it with a backend system. Originally, the app did not have a reservation feature, so I planned comprehensive enhancements including reservation functionality, review systems, and favorites management to demonstrate advanced software design principles.</p>
+
+            <div class="enhancement-grid">
+                <div class="enhancement-box">
+                    <h4>Current Implementation</h4>
+                    <ul>
+                        <li>Basic restaurant listing view</li>
+                        <li>Simple menu display functionality</li>
+                        <li>User authentication system</li>
+                        <li>SQLite database integration</li>
+                        <li>Cart functionality implementation</li>
+                    </ul>
+                </div>
+                <div class="enhancement-box">
+                    <h4>Planned Enhancements</h4>
+                    <ul>
+                        <li>Comprehensive reservation system architecture</li>
+                        <li>Review submission functionality design</li>
+                        <li>Favorites management system</li>
+                        <li>Enhanced UI/UX design patterns</li>
+                        <li>Advanced user experience workflows</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Enhancement Planning and Design</h2>
+            
+            <h3>Reservation System Architecture</h3>
+            <p>I designed a comprehensive reservation system architecture that would allow users to:</p>
+            <ul>
+                <li>Select restaurants from the main listing with improved navigation</li>
+                <li>Choose preferred date and time slots through intuitive interface design</li>
+                <li>Specify party size and special requests with form validation</li>
+                <li>Submit reservations with comprehensive confirmation workflows</li>
+                <li>View and manage existing reservations through dedicated interface</li>
+            </ul>
+
+            <h3>Technical Architecture Planning</h3>
+            <p>The enhanced system design incorporates modern React Native development patterns:</p>
+            <ul>
+                <li><strong>Component Architecture:</strong> Modular component design for reservation forms, date pickers, and confirmation screens</li>
+                <li><strong>State Management:</strong> Comprehensive state management using React hooks and context API for reservation data</li>
+                <li><strong>Navigation Flow:</strong> Seamless navigation between restaurant selection, reservation booking, and confirmation</li>
+                <li><strong>Data Integration:</strong> Integration with existing SQLite database structure for reservation persistence</li>
+            </ul>
+
+            <h3>Review Submission System Design</h3>
+            <p>Planned functionality for comprehensive user review system:</p>
+            <ul>
+                <li>Star rating interface with user-friendly interaction design</li>
+                <li>Text review input with character validation and real-time feedback</li>
+                <li>Photo upload capability planning with image optimization</li>
+                <li>Review validation and content moderation workflow design</li>
+                <li>Display system for user reviews with sorting and filtering options</li>
+            </ul>
+
+            <h3>Favorites Management System</h3>
+            <p>Designed a favorites management system architecture that enables users to:</p>
+            <ul>
+                <li>Save restaurants to personal favorites with one-tap functionality</li>
+                <li>Quick access to favorite restaurants through dedicated interface</li>
+                <li>Remove items from favorites with confirmation dialogs</li>
+                <li>Sort favorites by various criteria including date added and rating</li>
+                <li>Sync favorites across sessions through database persistence</li>
+            </ul>
+
+            <h2>Technical Skills Demonstrated</h2>
+            
+            <div class="skills-showcase">
+                <h3>Key Technologies & Frameworks</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <strong>React Native</strong>
+                        <p>Cross-platform mobile development</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>SQLite Integration</strong>
+                        <p>Database design & implementation</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>JavaScript ES6+</strong>
+                        <p>Modern JavaScript features</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>UI/UX Design</strong>
+                        <p>User interface & experience planning</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>State Management</strong>
+                        <p>React hooks & context API</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>System Architecture</strong>
+                        <p>Component design & integration planning</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Course Outcomes Alignment</h2>
+            
+            <h3>Innovative Techniques and Tools</h3>
+            <p>This enhancement planning demonstrates my ability to research and apply well-founded and innovative techniques in computing practices. By designing a comprehensive reservation system, review functionality, and favorites management architecture, I've created a detailed roadmap for solutions that would deliver real value to users and accomplish industry-specific goals in the restaurant and hospitality sector.</p>
+
+            <h3>Professional Communication</h3>
+            <p>The development process involved creating detailed documentation, user interface designs, and technical specifications that are coherent, technically sound, and appropriately adapted to different audiences - from end users to technical stakeholders. This planning phase demonstrates my ability to communicate complex technical concepts clearly.</p>
+
+            <h2>Design Process and Methodology</h2>
+            
+            <h3>User Experience Research</h3>
+            <ul>
+                <li><strong>Requirements Analysis:</strong> Analyzed user needs for restaurant reservation and review functionality through industry research</li>
+                <li><strong>Workflow Design:</strong> Created detailed user journey maps for reservation booking and review submission processes</li>
+                <li><strong>Interface Planning:</strong> Designed wireframes and component hierarchies for new functionality</li>
+                <li><strong>Integration Strategy:</strong> Planned integration with existing app architecture and database structure</li>
+            </ul>
+
+            <h3>Technical Architecture Planning</h3>
+            <ul>
+                <li>Researched React Native best practices for complex form handling and navigation</li>
+                <li>Planned state management strategies for handling reservation and review data</li>
+                <li>Designed component reusability patterns for consistent user experience</li>
+                <li>Developed integration strategies with existing SQLite database implementation</li>
+            </ul>
+
+            <h2>Challenges and Learning Outcomes</h2>
+            
+            <h3>Design Challenges</h3>
+            <ul>
+                <li><strong>Complex State Management:</strong> Planning for managing complex state across multiple screens and components required careful consideration of React Native's state management patterns and data flow.</li>
+                <li><strong>User Experience Design:</strong> Designing intuitive user flows for reservation booking while maintaining consistency with existing app design patterns presented significant UX challenges.</li>
+                <li><strong>Integration Complexity:</strong> Planning integration of new features with existing SQLite database structure required careful database schema analysis and modification planning.</li>
+            </ul>
+
+            <h3>Problem-Solving Approach</h3>
+            <ul>
+                <li>Conducted comprehensive user experience research to understand reservation flow requirements</li>
+                <li>Developed incremental implementation strategy with clear milestone planning</li>
+                <li>Researched React Native debugging tools and performance optimization techniques</li>
+                <li>Applied mobile-first design principles for responsive layout planning</li>
+            </ul>
+
+            <h2>Learning and Professional Development</h2>
+            
+            <h3>Technical Learning Outcomes</h3>
+            <p>Through this design and planning process, I gained valuable experience in:</p>
+            <ul>
+                <li><strong>System Design Thinking:</strong> Learning to approach complex feature additions systematically</li>
+                <li><strong>User-Centered Design:</strong> Understanding the importance of user experience in mobile application design</li>
+                <li><strong>Technical Planning:</strong> Developing skills in breaking down complex features into manageable implementation phases</li>
+                <li><strong>Integration Strategy:</strong> Understanding how new features interact with existing system architecture</li>
+            </ul>
+
+            <h3>Research and Analysis Skills</h3>
+            <p>This project enhanced my ability to:</p>
+            <ul>
+                <li>Research industry best practices for mobile application development</li>
+                <li>Analyze existing code structure to identify integration points for new features</li>
+                <li>Plan technical implementations based on thorough requirements analysis</li>
+                <li>Document technical decisions and architectural choices clearly</li>
+            </ul>
+
+            <h2>Professional Development Impact</h2>
+            <p>This enhancement planning project significantly contributed to my growth as a software developer by providing experience with:</p>
+            <ul>
+                <li>Comprehensive mobile application architecture planning</li>
+                <li>User-centered design methodology and workflow planning</li>
+                <li>Modern JavaScript and React Native development pattern research</li>
+                <li>Integration planning for complex features within existing applications</li>
+                <li>Professional software development documentation and communication</li>
+            </ul>
+
+            <p>The skills developed through this planning process directly align with my career goals in IT infrastructure consulting, where understanding modern application architectures, user experience considerations, and mobile development best practices are essential for advising clients on digital transformation initiatives. The systematic approach to feature planning and technical documentation will be valuable in consulting environments where clear communication of technical concepts to diverse stakeholders is crucial.</p>
+
+            <h2>Implementation Roadmap</h2>
+            
+            <h3>Phase 1: Foundation Enhancement</h3>
+            <ul>
+                <li>Enhance existing user interface components for better user experience</li>
+                <li>Implement improved navigation patterns for seamless user flow</li>
+                <li>Optimize existing state management for scalability</li>
+            </ul>
+
+            <h3>Phase 2: Reservation System Development</h3>
+            <ul>
+                <li>Implement date and time selection components</li>
+                <li>Create reservation form with validation and error handling</li>
+                <li>Develop confirmation and management interfaces</li>
+                <li>Integrate with database for reservation persistence</li>
+            </ul>
+
+            <h3>Phase 3: Review and Favorites Features</h3>
+            <ul>
+                <li>Build review submission interface with rating system</li>
+                <li>Implement favorites management functionality</li>
+                <li>Create review display and filtering systems</li>
+                <li>Add photo upload capabilities for reviews</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>This software design and engineering enhancement demonstrates my ability to approach complex mobile application development challenges systematically. Through comprehensive planning and architectural design, I've created a detailed roadmap for transforming a basic restaurant app into a sophisticated, feature-rich mobile solution.</p>
+
+            <p>The planning process has strengthened my understanding of user-centered design principles, modern mobile development patterns, and the importance of thorough technical documentation. These skills - combined with my experience in database implementation and algorithm optimization - provide a strong foundation for tackling complex software development challenges in professional environments.</p>
+
+            <p>As I prepare for my role as an IT infrastructure consultant with Kyndryl Japan, the systematic approach to software enhancement planning demonstrated in this project will be invaluable for understanding client requirements, designing technical solutions, and communicating complex concepts to diverse stakeholders in enterprise environments.</p>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
