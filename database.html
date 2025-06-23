@@ -125,14 +125,8 @@
 
         .content h3 {
             color: #764ba2;
-            margin: 1.5rem 0 1rem;
+            margin: 2rem 0 1rem;
             font-size: 1.3rem;
-        }
-
-        .content h4 {
-            color: #667eea;
-            margin: 1rem 0 0.5rem;
-            font-size: 1.1rem;
         }
 
         .content p {
@@ -151,118 +145,100 @@
             font-size: 1.1rem;
         }
 
-        .comparison-grid {
+        .security-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .security-card {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+
+        .security-card h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .code-section {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .code-section .comment {
+            color: #68d391;
+        }
+
+        .before-after {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
             margin: 2rem 0;
         }
 
-        .comparison-box {
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-        }
-
-        .before-box {
+        .before-section {
             background: rgba(220, 53, 69, 0.1);
-            border-left-color: #dc3545;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #dc3545;
         }
 
-        .after-box {
+        .after-section {
             background: rgba(40, 167, 69, 0.1);
-            border-left-color: #28a745;
-        }
-
-        .comparison-box h4 {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .database-schema {
-            background: rgba(102, 126, 234, 0.1);
             padding: 2rem;
             border-radius: 10px;
-            margin: 2rem 0;
+            border-left: 4px solid #28a745;
         }
 
-        .schema-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .table-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-top: 3px solid #667eea;
-        }
-
-        .table-card h4 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .table-card ul {
-            margin: 0;
-            padding-left: 1rem;
-        }
-
-        .table-card li {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 0.3rem;
-        }
-
-        .security-features {
-            background: rgba(118, 75, 162, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-        }
-
-        .features-grid {
+        .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
-            margin-top: 1.5rem;
+            margin: 2rem 0;
         }
 
-        .feature-item {
-            background: white;
+        .skill-item {
+            background: rgba(118, 75, 162, 0.1);
             padding: 1.5rem;
             border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-left: 3px solid #764ba2;
         }
 
-        .feature-item h4 {
+        .skill-item h5 {
             color: #764ba2;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
         }
 
-        .code-snippet {
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            font-family: 'Courier New', monospace;
-            overflow-x: auto;
-            font-size: 0.9rem;
+        .implementation-steps {
+            background: rgba(255, 193, 7, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid #ffc107;
         }
 
-        .sql-snippet {
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
-            padding: 1rem;
+        .implementation-steps ol {
             margin: 1rem 0;
-            font-family: 'Courier New', monospace;
-            border-radius: 0 8px 8px 0;
+            padding-left: 2rem;
+        }
+
+        .implementation-steps li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
 
         @media (max-width: 768px) {
@@ -278,7 +254,11 @@
                 padding: 2rem;
             }
             
-            .comparison-grid {
+            .before-after {
+                grid-template-columns: 1fr;
+            }
+            
+            .security-features {
                 grid-template-columns: 1fr;
             }
         }
@@ -302,16 +282,16 @@
         
         <section class="hero">
             <h1>Database Management</h1>
-            <p>SQLite Database Implementation - Successfully integrated 9-table architecture with security features and data optimization</p>
+            <p>SQLite Database Architecture Implementation - Comprehensive database enhancement with security, performance optimization, and normalized structure</p>
         </section>
 
         <section class="content">
             <h2>About the Enhancement</h2>
             <p>This project builds upon a restaurant app I originally created in CS 360 using React Native and Firebase. For CS 499 Milestone Four, I successfully enhanced this app by implementing a comprehensive SQLite database-driven architecture, replacing the external Firebase dependency with a locally-integrated database system.</p>
 
-            <div class="comparison-grid">
-                <div class="comparison-box before-box">
-                    <h4>Before Enhancement</h4>
+            <div class="before-after">
+                <div class="before-section">
+                    <h3 style="color: #dc3545; margin-bottom: 1.5rem;">Before Enhancement</h3>
                     <ul>
                         <li>Basic React Native app with Firebase dependency</li>
                         <li>Simple user registration and login features</li>
@@ -321,259 +301,136 @@
                         <li>External dependency for basic operations</li>
                     </ul>
                 </div>
+                <div class="after-section">
+                    <h3 style="color: #28a745; margin-bottom: 1.5rem;">After Enhancement</h3>
+                    <ul>
+                        <li>Comprehensive SQLite database with 9 normalized tables</li>
+                        <li>Advanced security features and authentication</li>
+                        <li>Complete local data management system</li>
+                        <li>Optimized performance with indexed queries</li>
+                        <li>Scalable architecture for future expansion</li>
+                        <li>Self-contained database-driven application</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Successfully Implemented Security Features</h2>
+            <div class="security-features">
+                <div class="security-card">
+                    <h4>Password Hashing</h4>
+                    <p>Successfully implemented SHA-256 with salt generation for secure password storage</p>
+                </div>
+                <div class="security-card">
+                    <h4>SQL Injection Prevention</h4>
+                    <p>Implemented parameterized queries and prepared statements throughout</p>
+                </div>
+                <div class="security-card">
+                    <h4>Data Validation</h4>
+                    <p>Implemented comprehensive input sanitization and type checking</p>
+                </div>
+                <div class="security-card">
+                    <h4>Access Control</h4>
+                    <p>Successfully implemented user authentication and session management</p>
+                </div>
+            </div>
+
+            <h3>Password Security Implementation</h3>
+            <div class="code-section">
+                <span class="comment">// Successfully implemented secure password hashing with salt</span><br>
+                import CryptoJS from 'crypto-js';<br><br>
+                
+                class SecurityManager {<br>
+                &nbsp;&nbsp;static generateSalt() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return CryptoJS.lib.WordArray.random(128/8).toString();<br>
+                &nbsp;&nbsp;}<br><br>
+                
+                &nbsp;&nbsp;static hashPassword(password, salt) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return CryptoJS.SHA256(password + salt).toString();<br>
+                &nbsp;&nbsp;}<br><br>
+                
+                &nbsp;&nbsp;static async createUser(username, email, password) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;const salt = this.generateSalt();<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;const passwordHash = this.hashPassword(password, salt);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;const query = "INSERT INTO Users (username, email, password_hash, salt) VALUES (?, ?, ?, ?)";<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return await database.executeSql(query, [username, email, passwordHash, salt]);<br>
+                &nbsp;&nbsp;}<br>
+                }
+            </div>
 
             <h3>SQL Injection Prevention Implementation</h3>
-            <div class="code-snippet">
-// Successfully implemented parameterized queries to prevent SQL injection
-class DatabaseManager {
-  static async safeQuery(query, params = []) {
-    try {
-      // All queries use parameterized statements
-      const result = await database.executeSql(query, params);
-      return { success: true, data: result };
-    } catch (error) {
-      console.error('Database query error:', error);
-      return { success: false, error: error.message };
-    }
-  }
-
-  // Implemented safe search function
-  static async searchRestaurants(searchTerm, category) {
-    const query = `
-      SELECT r.*, c.category_name, AVG(rev.rating) as avg_rating
-      FROM Restaurants r
-      LEFT JOIN Categories c ON r.category_id = c.category_id
-      LEFT JOIN Reviews rev ON r.restaurant_id = rev.restaurant_id
-      WHERE (r.name LIKE ? OR r.description LIKE ?)
-      AND (? IS NULL OR c.category_name = ?)
-      GROUP BY r.restaurant_id
-      ORDER BY avg_rating DESC
-    `;
-    
-    const searchPattern = `%${searchTerm}%`;
-    return await this.safeQuery(query, [
-      searchPattern, 
-      searchPattern, 
-      category, 
-      category
-    ]);
-  }
-}
+            <div class="code-section">
+                <span class="comment">// Successfully implemented parameterized queries to prevent SQL injection</span><br>
+                class DatabaseManager {<br>
+                &nbsp;&nbsp;static async safeQuery(query, params = []) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;try {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// All queries use parameterized statements</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const result = await database.executeSql(query, params);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return { success: true, data: result };<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;} catch (error) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.error('Database query error:', error);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return { success: false, error: error.message };<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;}<br>
+                }
             </div>
 
             <h2>Performance Optimization Implementation</h2>
-            
-            <h3>Strategic Indexing Implementation</h3>
-            <div class="sql-snippet">
--- Successfully created indexes for frequently queried columns
-CREATE INDEX idx_restaurants_category ON Restaurants(category_id);
-CREATE INDEX idx_menu_items_restaurant ON Menu_Items(restaurant_id);
-CREATE INDEX idx_orders_user ON Orders(user_id);
-CREATE INDEX idx_orders_date ON Orders(order_date);
-CREATE INDEX idx_reviews_restaurant ON Reviews(restaurant_id);
-CREATE INDEX idx_cart_user ON Cart(user_id);
-
--- Implemented composite indexes for complex queries
-CREATE INDEX idx_orders_user_date ON Orders(user_id, order_date DESC);
-CREATE INDEX idx_reviews_restaurant_rating ON Reviews(restaurant_id, rating);
+            <div class="code-section">
+                <span class="comment">// Implemented safe search function with optimized queries</span><br>
+                static async searchRestaurants(searchTerm, category) {<br>
+                &nbsp;&nbsp;const query = `SELECT r.*,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;c.category_name, AVG(rev.rating) as avg_rating<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;FROM Restaurants r LEFT JOIN Categories c ON r.category_id = c.category_id<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;LEFT JOIN Reviews rev ON r.restaurant_id = rev.restaurant_id<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;WHERE (r.name LIKE ? OR r.description LIKE ?)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;AND (? IS NULL OR c.category_name = ?)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;GROUP BY r.restaurant_id ORDER BY avg_rating DESC`;<br><br>
+                
+                &nbsp;&nbsp;const searchPattern = `%${searchTerm}%`;<br>
+                &nbsp;&nbsp;return await this.safeQuery(query, [searchPattern, searchPattern, category, category]);<br>
+                }
             </div>
-
-            <h3>Query Optimization Implementation</h3>
-            <div class="code-snippet">
-// Successfully implemented optimized query for restaurant recommendations
-const getRecommendedRestaurants = async (userId) => {
-  const query = `
-    WITH UserPreferences AS (
-      SELECT 
-        r.category_id,
-        COUNT(*) as order_count
-      FROM Orders o
-      JOIN Restaurants r ON o.restaurant_id = r.restaurant_id
-      WHERE o.user_id = ?
-      GROUP BY r.category_id
-      ORDER BY order_count DESC
-      LIMIT 3
-    ),
-    TopRatedRestaurants AS (
-      SELECT 
-        r.restaurant_id,
-        r.name,
-        r.category_id,
-        AVG(rev.rating) as avg_rating,
-        COUNT(rev.review_id) as review_count
-      FROM Restaurants r
-      JOIN Reviews rev ON r.restaurant_id = rev.restaurant_id
-      WHERE r.category_id IN (SELECT category_id FROM UserPreferences)
-      GROUP BY r.restaurant_id
-      HAVING review_count >= 5
-      ORDER BY avg_rating DESC
-      LIMIT 10
-    )
-    SELECT * FROM TopRatedRestaurants;
-  `;
-  
-  return await database.executeSql(query, [userId]);
-};
-
-// Successfully implemented efficient cart total calculation
-const getCartTotal = async (userId) => {
-  const query = `
-    SELECT 
-      SUM(mi.price * c.quantity) as total_amount,
-      COUNT(c.cart_id) as total_items
-    FROM Cart c
-    JOIN Menu_Items mi ON c.item_id = mi.item_id
-    WHERE c.user_id = ?
-  `;
-  
-  return await database.executeSql(query, [userId]);
-};
-            </div>
-
-            <h2>Database Normalization Implementation</h2>
-            <p>The database design successfully follows Third Normal Form (3NF) principles to eliminate data redundancy and ensure data integrity:</p>
-            
-            <ul>
-                <li><strong>First Normal Form (1NF):</strong> All tables have atomic values and unique column names</li>
-                <li><strong>Second Normal Form (2NF):</strong> No partial dependencies - all non-key attributes depend on the entire primary key</li>
-                <li><strong>Third Normal Form (3NF):</strong> No transitive dependencies - non-key attributes don't depend on other non-key attributes</li>
-            </ul>
-
-            <h3>Relationship Management Implementation</h3>
-            <div class="code-snippet">
-// Successfully implemented complex many-to-many relationship management
-class OrderManager {
-  static async createOrder(userId, restaurantId, cartItems) {
-    const transaction = await database.transaction();
-    
-    try {
-      // Calculate total amount
-      const total = cartItems.reduce((sum, item) => 
-        sum + (item.price * item.quantity), 0
-      );
-      
-      // Create order record
-      const orderResult = await transaction.executeSql(
-        'INSERT INTO Orders (user_id, restaurant_id, total_amount) VALUES (?, ?, ?)',
-        [userId, restaurantId, total]
-      );
-      
-      const orderId = orderResult.insertId;
-      
-      // Insert order items
-      for (const item of cartItems) {
-        await transaction.executeSql(
-          'INSERT INTO Order_Items (order_id, item_id, quantity, unit_price) VALUES (?, ?, ?, ?)',
-          [orderId, item.item_id, item.quantity, item.price]
-        );
-      }
-      
-      // Clear user's cart
-      await transaction.executeSql(
-        'DELETE FROM Cart WHERE user_id = ?',
-        [userId]
-      );
-      
-      await transaction.commit();
-      return { success: true, orderId };
-      
-    } catch (error) {
-      await transaction.rollback();
-      return { success: false, error: error.message };
-    }
-  }
-}
-            </div>
-
-            <h2>Course Outcomes Achieved</h2>
-            
-            <h3>Algorithms and Data Structures</h3>
-            <ul>
-                <li>Successfully designed efficient database queries with optimal time complexity</li>
-                <li>Implemented search and sorting functionality using SQL operations</li>
-                <li>Selected appropriate data structures (B-trees via indexes) for performance enhancement</li>
-            </ul>
-
-            <h3>Technologies and Tools</h3>
-            <ul>
-                <li>Successfully integrated SQLite with React Native for cross-platform compatibility</li>
-                <li>Implemented modern JavaScript for database operations and async/await patterns</li>
-                <li>Applied mobile development best practices for data persistence</li>
-            </ul>
-
-            <h3>Security Mindset</h3>
-            <ul>
-                <li>Successfully implemented secure authentication system with proper password hashing</li>
-                <li>Protected data privacy through parameterized queries</li>
-                <li>Applied secure coding practices throughout the database layer</li>
-            </ul>
-
-            <h2>Implementation Challenges and Solutions</h2>
-            
-            <h3>Database Design Challenges</h3>
-            <p><strong>Database Normalization:</strong> Initially, table design was challenging, but I successfully learned how to create efficient structures that avoid data duplication while maintaining referential integrity through systematic application of normalization principles.</p>
-
-            <p><strong>Complex Relationships:</strong> The order system was particularly complex, requiring representation of many-to-many relationships between orders and menu items. I successfully implemented this through the Order_Items junction table, properly handling different quantities and pricing.</p>
-
-            <h3>Performance Optimization</h3>
-            <p><strong>Mobile Performance Focus:</strong> For mobile apps, memory and speed are crucial. I successfully implemented strategic indexing and optimized queries specifically designed for the constraints of mobile devices.</p>
-
-            <p><strong>Query Optimization:</strong> Initially, some queries were slow and I couldn't identify bottlenecks. I successfully used debugging tools to find and fix these issues, learning to analyze query execution plans and implement appropriate optimizations.</p>
-
-            <h3>Security Implementation</h3>
-            <p><strong>Authentication Security:</strong> Successfully learned to properly implement password hashing with salts and completely eliminated plain text password storage, understanding why this is never acceptable in production systems.</p>
-
-            <p><strong>SQL Injection Prevention:</strong> Successfully implemented parameterized queries throughout the application, ensuring that user input is never directly concatenated into SQL statements, preventing malicious input attacks.</p>
 
             <h2>Problem-Solving Approach</h2>
             <p>When encountering database implementation challenges, I followed a systematic approach:</p>
-            <ol>
-                <li><strong>Research:</strong> Researched database design best practices and studied normalization principles</li>
-                <li><strong>Incremental Implementation:</strong> Implemented features incrementally and tested each step thoroughly</li>
-                <li><strong>Performance Analysis:</strong> Used debugging tools to analyze performance issues and identify bottlenecks</li>
-                <li><strong>Security Review:</strong> Reviewed implementation for security vulnerabilities and applied secure coding practices</li>
-            </ol>
+            
+            <div class="implementation-steps">
+                <h3 style="color: #856404; margin-bottom: 1.5rem;">Implementation Process</h3>
+                <ol>
+                    <li><strong>Research:</strong> Researched database design best practices and studied normalization principles</li>
+                    <li><strong>Incremental Implementation:</strong> Implemented features incrementally and tested each step thoroughly</li>
+                    <li><strong>Performance Analysis:</strong> Used debugging tools to analyze performance issues and identify bottlenecks</li>
+                    <li><strong>Security Review:</strong> Reviewed implementation for security vulnerabilities and applied secure coding practices</li>
+                </ol>
+            </div>
 
             <h2>Skills Successfully Developed</h2>
-            <ul>
-                <li><strong>SQL Proficiency:</strong> Became proficient with complex JOIN queries, aggregate functions, and subqueries</li>
-                <li><strong>Database Design:</strong> Successfully applied normalization theory in practice and designed efficient relational schemas</li>
-                <li><strong>Performance Tuning:</strong> Successfully identified and improved slow queries through indexing and optimization</li>
-                <li><strong>Security Implementation:</strong> Successfully implemented comprehensive database security measures</li>
-                <li><strong>Transaction Management:</strong> Successfully handled complex multi-table operations with proper transaction control</li>
-            </ul>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h5>SQL Proficiency</h5>
+                    <p>Became proficient with complex JOIN queries, aggregate functions, and subqueries</p>
+                </div>
+                <div class="skill-item">
+                    <h5>Database Design</h5>
+                    <p>Successfully applied normalization theory in practice and designed efficient table relationships</p>
+                </div>
+                <div class="skill-item">
+                    <h5>Security Implementation</h5>
+                    <p>Implemented password hashing, SQL injection prevention, and access control systems</p>
+                </div>
+                <div class="skill-item">
+                    <h5>Performance Optimization</h5>
+                    <p>Optimized queries for better performance and implemented efficient indexing strategies</p>
+                </div>
+            </div>
 
             <h2>Professional Development Impact</h2>
-            <p>Through this project, I gained practical database skills that extend well beyond theoretical knowledge. The original simple app was successfully transformed into a comprehensive restaurant management system that demonstrates enterprise-level database design and implementation.</p>
+            <p>This database enhancement project has provided me with practical, hands-on experience that bridges the gap between academic learning and professional application. I am confident that these skills will serve me well in tackling real-world database challenges in enterprise IT environments.</p>
 
-            <p>I experienced the full range of skills needed in real development environments: from database design to implementation, optimization, and security measures. This experience will be directly applicable when working in software development or database management roles, particularly in my upcoming position with Kyndryl Japan.</p>
-
-            <p>What initially seemed like difficult database concepts became clear through hands-on implementation. Building a real, functional system helped me truly understand these important principles and prepared me for the complex database challenges I'll encounter in my career as an IT infrastructure consultant.</p>
-
-            <h2>Integration with Mobile Application</h2>
-            
-            <h3>React Native SQLite Integration</h3>
-            <p>Successfully integrated the SQLite database with React Native using the react-native-sqlite-storage library:</p>
-            <ul>
-                <li><strong>Database Connection:</strong> Established reliable database connections with proper error handling</li>
-                <li><strong>Transaction Management:</strong> Implemented atomic transactions for complex operations</li>
-                <li><strong>Data Synchronization:</strong> Ensured UI updates reflect database changes in real-time</li>
-                <li><strong>Error Handling:</strong> Implemented comprehensive error handling for database operations</li>
-            </ul>
-
-            <h3>Data Persistence and User Experience</h3>
-            <p>The SQLite implementation significantly improved the user experience:</p>
-            <ul>
-                <li><strong>Offline Capability:</strong> Users can access restaurant information without internet connection</li>
-                <li><strong>Fast Loading:</strong> Local database queries provide near-instantaneous results</li>
-                <li><strong>Data Consistency:</strong> Proper normalization ensures data integrity across the application</li>
-                <li><strong>Scalability:</strong> Database structure supports future feature additions and data growth</li>
-            </ul>
+            <p>The comprehensive 9-table architecture, combined with successfully implemented security features and performance optimizations, showcases my readiness to handle complex database challenges in enterprise environments. This foundational knowledge in database management will be invaluable in my upcoming role with Kyndryl Japan, where understanding data architecture and security is essential for successful IT infrastructure consulting.</p>
 
             <h2>Conclusion</h2>
             <p>This database enhancement represents a successful transformation from a simple Firebase-connected app to a sophisticated, secure, and high-performance database-driven system. The project demonstrates my ability to design, implement, and optimize relational databases while maintaining security and performance standards required in professional software development.</p>
-
-            <p>The comprehensive 9-table architecture, combined with successfully implemented security features and performance optimizations, showcases my readiness to handle complex database challenges in enterprise environments. This foundational knowledge in database management will be invaluable in my upcoming role with Kyndryl Japan, where understanding data architecture and security is essential for successful IT infrastructure consulting.</p>
 
             <p>The successful completion of this database implementation project has provided me with practical, hands-on experience that bridges the gap between academic learning and professional application. I am confident that these skills will serve me well in tackling real-world database challenges in enterprise IT environments.</p>
         </section>
@@ -592,269 +449,3 @@ class OrderManager {
     </script>
 </body>
 </html>
-                <div class="comparison-box after-box">
-                    <h4>Successfully Implemented</h4>
-                    <ul>
-                        <li>Complete SQLite database integration</li>
-                        <li>Secure database-integrated authentication system</li>
-                        <li>Comprehensive restaurant, menu, and order management</li>
-                        <li>Functional cart system and favorites feature</li>
-                        <li>Full data persistence with local storage</li>
-                        <li>Self-contained system with 9 interconnected tables</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h2>Successfully Implemented Database Architecture</h2>
-            <div class="database-schema">
-                <h3 style="text-align: center; color: #667eea; margin-bottom: 1rem;">9-Table Relational Database Schema</h3>
-                <div class="schema-grid">
-                    <div class="table-card">
-                        <h4>Users</h4>
-                        <ul>
-                            <li>user_id (PRIMARY KEY)</li>
-                            <li>username</li>
-                            <li>email</li>
-                            <li>password_hash</li>
-                            <li>salt</li>
-                            <li>created_at</li>
-                        </ul>
-                    </div>
-                    <div class="table-card">
-                        <h4>Restaurants</h4>
-                        <ul>
-                            <li>restaurant_id (PRIMARY KEY)</li>
-                            <li>name</li>
-                            <li>description</li>
-                            <li>address</li>
-                            <li>phone</li>
-                            <li>category_id (FOREIGN KEY)</li>
-                        </ul>
-                    </div>
-                    <div class="table-card">
-                        <h4>Categories</h4>
-                        <ul>
-                            <li>category_id (PRIMARY KEY)</li>
-                            <li>category_name</li>
-                            <li>description</li>
-                        </ul>
-                    </div>
-                    <div class="table-card">
-                        <h4>Menu_Items</h4>
-                        <ul>
-                            <li>item_id (PRIMARY KEY)</li>
-                            <li>restaurant_id (FOREIGN KEY)</li>
-                            <li>name</li>
-                            <li>description</li>
-                            <li>price</li>
-                            <li>category</li>
-                        </ul>
-                    </div>
-                    <div class="table-card">
-                        <h4>Orders</h4>
-                        <ul>
-                            <li>order_id (PRIMARY KEY)</li>
-                            <li>user_id (FOREIGN KEY)</li>
-                            <li>restaurant_id (FOREIGN KEY)</li>
-                            <li>total_amount</li>
-                            <li>status</li>
-                            <li>order_date</li>
-                        </ul>
-                    </div>
-                    <div class="table-card">
-                        <h4>Order_Items</h4>
-                        <ul>
-                            <li>order_item_id (PRIMARY KEY)</li>
-                            <li>order_id (FOREIGN KEY)</li>
-                            <li>item_id (FOREIGN KEY)</li>
-                            <li>quantity</li>
-                            <li>unit_price</li>
-                        </ul>
-                    </div>
-                    <div class="table-card">
-                        <h4>Cart</h4>
-                        <ul>
-                            <li>cart_id (PRIMARY KEY)</li>
-                            <li>user_id (FOREIGN KEY)</li>
-                            <li>item_id (FOREIGN KEY)</li>
-                            <li>quantity</li>
-                            <li>added_at</li>
-                        </ul>
-                    </div>
-                    <div class="table-card">
-                        <h4>Favorites</h4>
-                        <ul>
-                            <li>favorite_id (PRIMARY KEY)</li>
-                            <li>user_id (FOREIGN KEY)</li>
-                            <li>restaurant_id (FOREIGN KEY)</li>
-                            <li>added_at</li>
-                        </ul>
-                    </div>
-                    <div class="table-card">
-                        <h4>Reviews</h4>
-                        <ul>
-                            <li>review_id (PRIMARY KEY)</li>
-                            <li>user_id (FOREIGN KEY)</li>
-                            <li>restaurant_id (FOREIGN KEY)</li>
-                            <li>rating</li>
-                            <li>comment</li>
-                            <li>review_date</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <h2>Technical Implementation</h2>
-            
-            <h3>Database Creation and Schema Setup</h3>
-            <div class="sql-snippet">
--- Create Users table with secure authentication
-CREATE TABLE Users (
-    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password_hash TEXT NOT NULL,
-    salt TEXT NOT NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
-
--- Create Restaurants table
-CREATE TABLE Restaurants (
-    restaurant_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name VARCHAR(100) NOT NULL,
-    description TEXT,
-    address VARCHAR(200),
-    phone VARCHAR(20),
-    category_id INTEGER,
-    FOREIGN KEY (category_id) REFERENCES Categories(category_id)
-);
-
--- Create Orders table with foreign key relationships
-CREATE TABLE Orders (
-    order_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER NOT NULL,
-    restaurant_id INTEGER NOT NULL,
-    total_amount DECIMAL(10,2) NOT NULL,
-    status VARCHAR(20) DEFAULT 'pending',
-    order_date DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES Users(user_id),
-    FOREIGN KEY (restaurant_id) REFERENCES Restaurants(restaurant_id)
-);
-            </div>
-
-            <h3>Complex SQL Operations Implementation</h3>
-            <div class="code-snippet">
-// Implemented complex JOIN query to get user orders with restaurant details
-const getUserOrderHistory = async (userId) => {
-  const query = `
-    SELECT 
-      o.order_id,
-      o.order_date,
-      o.total_amount,
-      o.status,
-      r.name as restaurant_name,
-      r.address as restaurant_address,
-      GROUP_CONCAT(
-        mi.name || ' x' || oi.quantity || ' ($' || oi.unit_price || ')'
-      ) as order_items
-    FROM Orders o
-    JOIN Restaurants r ON o.restaurant_id = r.restaurant_id
-    JOIN Order_Items oi ON o.order_id = oi.order_id
-    JOIN Menu_Items mi ON oi.item_id = mi.item_id
-    WHERE o.user_id = ?
-    GROUP BY o.order_id
-    ORDER BY o.order_date DESC
-  `;
-  
-  return await database.executeSql(query, [userId]);
-};
-
-// Implemented aggregate function for restaurant statistics
-const getRestaurantStats = async (restaurantId) => {
-  const query = `
-    SELECT 
-      COUNT(DISTINCT r.review_id) as total_reviews,
-      AVG(r.rating) as average_rating,
-      COUNT(DISTINCT o.order_id) as total_orders,
-      SUM(o.total_amount) as total_revenue
-    FROM Restaurants res
-    LEFT JOIN Reviews r ON res.restaurant_id = r.restaurant_id
-    LEFT JOIN Orders o ON res.restaurant_id = o.restaurant_id
-    WHERE res.restaurant_id = ?
-    GROUP BY res.restaurant_id
-  `;
-  
-  return await database.executeSql(query, [restaurantId]);
-};
-            </div>
-
-            <h2>Successfully Implemented Security Features</h2>
-            <div class="security-features">
-                <h3 style="text-align: center; color: #764ba2; margin-bottom: 1rem;">Comprehensive Security Implementation</h3>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <h4>Password Hashing</h4>
-                        <p>Successfully implemented SHA-256 with salt generation for secure password storage</p>
-                    </div>
-                    <div class="feature-item">
-                        <h4>SQL Injection Prevention</h4>
-                        <p>Implemented parameterized queries and prepared statements throughout</p>
-                    </div>
-                    <div class="feature-item">
-                        <h4>Data Validation</h4>
-                        <p>Implemented comprehensive input sanitization and type checking</p>
-                    </div>
-                    <div class="feature-item">
-                        <h4>Access Control</h4>
-                        <p>Successfully implemented user authentication and session management</p>
-                    </div>
-                </div>
-            </div>
-
-            <h3>Password Security Implementation</h3>
-            <div class="code-snippet">
-// Successfully implemented secure password hashing with salt
-import CryptoJS from 'crypto-js';
-
-class SecurityManager {
-  static generateSalt() {
-    return CryptoJS.lib.WordArray.random(128/8).toString();
-  }
-
-  static hashPassword(password, salt) {
-    return CryptoJS.SHA256(password + salt).toString();
-  }
-
-  static async createUser(username, email, password) {
-    const salt = this.generateSalt();
-    const passwordHash = this.hashPassword(password, salt);
-    
-    const query = `
-      INSERT INTO Users (username, email, password_hash, salt)
-      VALUES (?, ?, ?, ?)
-    `;
-    
-    return await database.executeSql(query, [username, email, passwordHash, salt]);
-  }
-
-  static async authenticateUser(username, password) {
-    const query = `
-      SELECT user_id, password_hash, salt 
-      FROM Users 
-      WHERE username = ?
-    `;
-    
-    const result = await database.executeSql(query, [username]);
-    
-    if (result.rows.length > 0) {
-      const user = result.rows.item(0);
-      const hashedInput = this.hashPassword(password, user.salt);
-      
-      if (hashedInput === user.password_hash) {
-        return { success: true, userId: user.user_id };
-      }
-    }
-    
-    return { success: false };
-  }
-}
