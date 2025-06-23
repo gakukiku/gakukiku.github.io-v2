@@ -156,26 +156,6 @@
             font-size: 1.2rem;
         }
 
-        .code-section {
-            background: #2d3748;
-            color: #e2e8f0;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        .code-section .comment {
-            color: #68d391;
-        }
-
-        .code-section .keyword {
-            color: #90cdf4;
-        }
-
         .before-after {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -266,116 +246,121 @@
         
         <section class="hero">
             <h1>Algorithms & Data Structures</h1>
-            <p>Restaurant App - Search, Filter & Data Processing Algorithms implemented through database query optimization and efficient data structures</p>
+            <p>Binary Search Tree to AVL Tree Enhancement - Self-balancing tree implementation with rotation algorithms for guaranteed O(log n) performance</p>
         </section>
 
         <section class="content">
             <h2>Project Overview</h2>
-            <p>As part of the restaurant app database enhancement project, I implemented various algorithms and data structures to optimize search functionality, data filtering, and processing operations. This project demonstrates the practical application of algorithmic thinking in database design and query optimization.</p>
+            <p>This artifact demonstrates the enhancement of a Binary Search Tree (BST) program originally created in CS 300: Data Structures and Algorithms into a self-balancing AVL Tree implementation. The project showcases advanced algorithmic thinking, performance optimization, and understanding of complex data structures through the implementation of rotation algorithms and balance factor maintenance.</p>
 
             <div class="before-after">
                 <div class="before-section">
-                    <h3 style="color: #dc3545; margin-bottom: 1.5rem;">Before Enhancement</h3>
+                    <h3 style="color: #dc3545; margin-bottom: 1.5rem;">Before Enhancement (Basic BST)</h3>
                     <ul>
-                        <li>Hardcoded data with no persistence</li>
-                        <li>Basic linear search through arrays</li>
-                        <li>No indexing or optimization</li>
-                        <li>Simple data structures without relationships</li>
-                        <li>Limited search and filter capabilities</li>
+                        <li>Simple binary search tree implementation</li>
+                        <li>O(n) worst-case performance with unbalanced trees</li>
+                        <li>No self-balancing capabilities</li>
+                        <li>Linear degradation with sorted input</li>
+                        <li>Basic insert, delete, and search operations</li>
                     </ul>
                 </div>
                 <div class="after-section">
-                    <h3 style="color: #28a745; margin-bottom: 1.5rem;">After Enhancement</h3>
+                    <h3 style="color: #28a745; margin-bottom: 1.5rem;">After Enhancement (AVL Tree)</h3>
                     <ul>
-                        <li>Optimized database queries with indexes</li>
-                        <li>Complex JOIN operations for related data</li>
-                        <li>Efficient search and sorting algorithms</li>
-                        <li>Normalized database structure (9 tables)</li>
-                        <li>Advanced filtering and aggregation functions</li>
+                        <li>Self-balancing AVL tree with rotation algorithms</li>
+                        <li>Guaranteed O(log n) performance for all operations</li>
+                        <li>Automatic height balancing after insertions/deletions</li>
+                        <li>Single and double rotation implementations</li>
+                        <li>Balance factor calculation and maintenance</li>
                     </ul>
                 </div>
             </div>
 
-            <h2>Implemented Algorithms and Data Structures</h2>
+            <h2>Implemented Algorithms and Techniques</h2>
             <div class="algorithms-grid">
                 <div class="algorithm-card">
-                    <h4>Database Query Optimization</h4>
-                    <p>Implemented efficient SQL queries using JOINs, subqueries, and aggregate functions to minimize database access time and improve search performance.</p>
+                    <h4>AVL Rotation Algorithms</h4>
+                    <p>Implemented four types of rotations (left, right, left-right, right-left) to maintain tree balance and ensure O(log n) performance guarantees.</p>
                 </div>
                 <div class="algorithm-card">
-                    <h4>Search Algorithms</h4>
-                    <p>Developed search functionality for restaurants, menu items, and orders using optimized database queries with appropriate indexing strategies.</p>
+                    <h4>Balance Factor Calculation</h4>
+                    <p>Developed algorithms to calculate and maintain balance factors for each node, triggering rotations when the tree becomes unbalanced.</p>
                 </div>
                 <div class="algorithm-card">
-                    <h4>Sorting and Filtering</h4>
-                    <p>Implemented sorting algorithms for restaurant ratings, prices, and categories with efficient filtering mechanisms for user preferences.</p>
+                    <h4>Height Maintenance</h4>
+                    <p>Implemented efficient height calculation and updating mechanisms that work in conjunction with rotation algorithms.</p>
                 </div>
                 <div class="algorithm-card">
-                    <h4>Data Structure Design</h4>
-                    <p>Designed normalized database schema with proper relationships, foreign keys, and indexing for optimal data access patterns.</p>
+                    <h4>Performance Optimization</h4>
+                    <p>Applied algorithmic analysis to optimize insertion, deletion, and search operations while maintaining AVL properties.</p>
                 </div>
             </div>
 
-            <h3>Database Query Optimization Techniques</h3>
-            <p>Implemented complex SQL operations to enhance data retrieval efficiency across the 9-table restaurant database system. This included utilizing JOIN operations to connect related data across tables, implementing aggregate functions for data analysis, and applying subqueries for complex filtering requirements.</p>
+            <h3>Single and Double Rotation Implementation</h3>
+            <p>The core enhancement involved implementing the four fundamental AVL rotation operations. Single rotations (left and right) handle simple imbalance cases, while double rotations (left-right and right-left) address more complex scenarios where a single rotation would not restore balance. Each rotation maintains the binary search tree property while restoring the AVL height balance requirement.</p>
 
-            <h3>Performance Enhancement Strategies</h3>
-            <p>Applied strategic indexing techniques to optimize query performance, particularly for frequently accessed data such as restaurant searches, user favorites, and order processing. The indexing strategy focused on columns most commonly used in WHERE clauses and JOIN operations to minimize database access time.</p>
+            <h3>Balance Factor Algorithm</h3>
+            <p>Implemented a comprehensive balance factor calculation system that tracks the height difference between left and right subtrees for every node. When the balance factor exceeds the acceptable range of -1 to +1, the appropriate rotation algorithm is automatically triggered to restore tree balance and maintain guaranteed O(log n) performance.</p>
 
-            <h3>Advanced SQL Features Implementation</h3>
-            <p>Utilized advanced SQL features including aggregate functions for data analysis, complex JOIN operations to retrieve related information across multiple tables, and optimized query structures to support efficient search and filtering functionality within the mobile application environment.</p>
+            <h3>Time Complexity Analysis</h3>
+            <p>Through this enhancement, I analyzed and compared the time complexity characteristics of basic BST versus AVL tree operations. The original BST could degrade to O(n) performance with skewed input, while the enhanced AVL implementation guarantees O(log n) for insert, delete, and search operations regardless of input order.</p>
 
             <h2>Challenges Faced and Solutions</h2>
             <div class="challenges-section">
-                <h3 style="color: #856404; margin-bottom: 1.5rem;">Problem-Solving Approach</h3>
+                <h3 style="color: #856404; margin-bottom: 1.5rem;">Technical Challenges and Problem-Solving</h3>
                 
-                <h4>Challenge: Complex Table Relationships</h4>
-                <p><strong>Problem:</strong> The order system was particularly complex, with one order containing multiple menu items, each with different quantities.</p>
-                <p><strong>Solution:</strong> Implemented a proper many-to-many relationship using Order_Items junction table with quantity tracking.</p>
+                <h4>Challenge: Complex Rotation Logic</h4>
+                <p><strong>Problem:</strong> Implementing correct rotation algorithms while maintaining parent-child relationships and BST properties.</p>
+                <p><strong>Solution:</strong> Developed step-by-step rotation procedures with careful pointer manipulation and tested each rotation type individually.</p>
 
-                <h4>Challenge: Query Performance Issues</h4>
-                <p><strong>Problem:</strong> Initial queries were slow and bottlenecks were difficult to identify.</p>
-                <p><strong>Solution:</strong> Used debugging tools to analyze query execution plans and strategically added indexes to frequently queried columns.</p>
+                <h4>Challenge: Balance Factor Maintenance</h4>
+                <p><strong>Problem:</strong> Efficiently updating balance factors during insertions and deletions without recalculating entire subtree heights.</p>
+                <p><strong>Solution:</strong> Implemented incremental balance factor updates that propagate changes up the tree during rebalancing operations.</p>
 
-                <h4>Challenge: Data Synchronization</h4>
-                <p><strong>Problem:</strong> Synchronizing React Native app state with database state, especially for real-time cart updates.</p>
-                <p><strong>Solution:</strong> Implemented efficient state management patterns and optimized database update operations.</p>
+                <h4>Challenge: Performance Validation</h4>
+                <p><strong>Problem:</strong> Verifying that the AVL implementation actually achieves the theoretical O(log n) performance improvements.</p>
+                <p><strong>Solution:</strong> Developed comprehensive test cases with various input patterns and measured actual performance against theoretical expectations.</p>
             </div>
 
             <h2>Skills Developed</h2>
             <div class="skills-grid">
                 <div class="skill-item">
-                    <h5>SQL Proficiency</h5>
-                    <p>Mastered complex JOIN queries, aggregate functions, and subqueries for efficient data retrieval and analysis.</p>
+                    <h5>Algorithm Implementation</h5>
+                    <p>Mastered complex rotation algorithms and self-balancing tree maintenance procedures.</p>
                 </div>
                 <div class="skill-item">
-                    <h5>Database Design</h5>
-                    <p>Applied normalization theory to create efficient table structures that avoid data duplication and maintain integrity.</p>
+                    <h5>Performance Analysis</h5>
+                    <p>Applied time complexity analysis to compare BST vs AVL performance characteristics.</p>
                 </div>
                 <div class="skill-item">
-                    <h5>Performance Optimization</h5>
-                    <p>Learned to identify bottlenecks and implement indexing strategies for improved query performance.</p>
+                    <h5>Data Structure Design</h5>
+                    <p>Enhanced understanding of advanced tree structures and balancing mechanisms.</p>
                 </div>
                 <div class="skill-item">
-                    <h5>Algorithm Selection</h5>
-                    <p>Developed ability to choose appropriate data structures and algorithms based on specific performance requirements.</p>
+                    <h5>Problem Solving</h5>
+                    <p>Developed systematic approaches to debugging complex pointer manipulation and tree operations.</p>
                 </div>
             </div>
 
             <h2>Technical Learning Outcomes</h2>
-            <p>Through this project, I gained practical experience in applying algorithmic thinking to real-world database problems. The implementation of efficient search algorithms, data filtering mechanisms, and performance optimization techniques demonstrates my understanding of how theoretical computer science concepts translate into practical software solutions.</p>
+            <p>Through this project, I gained deep practical experience with advanced data structures and their performance characteristics. The implementation of AVL rotation algorithms required careful analysis of tree properties and systematic approach to maintaining invariants during complex operations.</p>
 
-            <p>The normalized database design with 9 interconnected tables required careful consideration of data access patterns and algorithmic efficiency. By implementing proper indexing strategies and optimizing complex queries, I learned how algorithmic choices directly impact application performance in mobile development environments where memory and processing constraints are critical.</p>
+            <p>The project reinforced my understanding of how theoretical algorithmic concepts translate into practical performance improvements. By measuring the actual performance differences between BST and AVL implementations, I learned to validate theoretical time complexity analysis through empirical testing.</p>
 
             <h2>Course Outcomes Alignment</h2>
-            <p><strong>Algorithms and Data Structures:</strong> Successfully designed efficient database queries, implemented search and sorting functionality, and selected appropriate data structures for optimal performance in a mobile application context.</p>
+            <p><strong>Algorithms and Data Structures:</strong> Successfully designed and implemented complex self-balancing algorithms, demonstrated understanding of time complexity analysis, and applied advanced data structure concepts to solve performance optimization challenges.</p>
 
-            <p><strong>Technologies and Tools:</strong> Integrated algorithmic solutions with modern JavaScript and React Native, demonstrating the practical application of computer science theory in contemporary software development frameworks.</p>
+            <p><strong>Problem-Solving Skills:</strong> Developed systematic debugging approaches for complex recursive algorithms and learned to break down advanced algorithmic problems into manageable implementation steps.</p>
+
+            <h2>Professional Development Impact</h2>
+            <p>This enhancement project significantly strengthened my algorithmic thinking and performance optimization skills. Understanding the principles behind self-balancing data structures provides a solid foundation for tackling performance challenges in enterprise software development.</p>
+
+            <p>The experience with complex algorithm implementation and performance analysis directly applies to my career goals in IT infrastructure consulting, where understanding system performance characteristics and optimization techniques is crucial for designing scalable solutions.</p>
 
             <h2>Conclusion</h2>
-            <p>This project demonstrates my ability to apply algorithmic thinking and data structure design principles to solve real-world problems. The transformation from a simple hardcoded app to a sophisticated database-driven system showcases my understanding of how proper algorithm selection and implementation can dramatically improve application performance and user experience.</p>
+            <p>The transformation from a basic Binary Search Tree to a sophisticated AVL Tree implementation demonstrates my ability to understand, analyze, and implement advanced algorithmic concepts. This project showcases not just technical implementation skills, but the analytical thinking required to optimize performance-critical systems.</p>
 
-            <p>The hands-on experience with complex SQL operations, performance optimization, and efficient data processing provides a solid foundation for tackling algorithmic challenges in professional software development environments.</p>
+            <p>The hands-on experience with rotation algorithms, balance factor maintenance, and performance validation provides essential skills for professional software development environments where algorithmic efficiency directly impacts system scalability and user experience.</p>
         </section>
     </main>
 
