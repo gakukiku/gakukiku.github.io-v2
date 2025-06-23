@@ -125,14 +125,8 @@
 
         .content h3 {
             color: #764ba2;
-            margin: 1.5rem 0 1rem;
+            margin: 2rem 0 1rem;
             font-size: 1.3rem;
-        }
-
-        .content h4 {
-            color: #667eea;
-            margin: 1rem 0 0.5rem;
-            font-size: 1.1rem;
         }
 
         .content p {
@@ -142,120 +136,93 @@
             text-align: justify;
         }
 
-        .content ul {
-            margin: 1rem 0 1.5rem 2rem;
+        .algorithms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
         }
 
-        .content li {
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+        .algorithm-card {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
         }
 
-        .comparison-grid {
+        .algorithm-card h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .code-section {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .code-section .comment {
+            color: #68d391;
+        }
+
+        .code-section .keyword {
+            color: #90cdf4;
+        }
+
+        .before-after {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
             margin: 2rem 0;
         }
 
-        .comparison-box {
+        .before-section {
+            background: rgba(220, 53, 69, 0.1);
             padding: 2rem;
             border-radius: 10px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #dc3545;
         }
 
-        .before-box {
-            background: rgba(220, 53, 69, 0.1);
-            border-left-color: #dc3545;
-        }
-
-        .after-box {
+        .after-section {
             background: rgba(40, 167, 69, 0.1);
-            border-left-color: #28a745;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #28a745;
         }
 
-        .comparison-box h4 {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .analysis-section {
-            background: rgba(102, 126, 234, 0.1);
+        .challenges-section {
+            background: rgba(255, 193, 7, 0.1);
             padding: 2rem;
             border-radius: 10px;
             margin: 2rem 0;
+            border-left: 4px solid #ffc107;
         }
 
-        .analysis-grid {
+        .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .analysis-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .analysis-value {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #667eea;
-            display: block;
-        }
-
-        .analysis-label {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .algorithm-showcase {
-            background: rgba(118, 75, 162, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
             margin: 2rem 0;
         }
 
-        .code-snippet {
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: 8px;
+        .skill-item {
+            background: rgba(118, 75, 162, 0.1);
             padding: 1.5rem;
-            margin: 1.5rem 0;
-            font-family: 'Courier New', monospace;
-            overflow-x: auto;
-            font-size: 0.9rem;
-        }
-
-        .complexity-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: white;
             border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-left: 3px solid #764ba2;
         }
 
-        .complexity-table th,
-        .complexity-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-
-        .complexity-table th {
-            background: #667eea;
-            color: white;
-            font-weight: 600;
-        }
-
-        .complexity-table tr:hover {
-            background: rgba(102, 126, 234, 0.05);
+        .skill-item h5 {
+            color: #764ba2;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
         }
 
         @media (max-width: 768px) {
@@ -271,7 +238,11 @@
                 padding: 2rem;
             }
             
-            .comparison-grid {
+            .before-after {
+                grid-template-columns: 1fr;
+            }
+            
+            .algorithms-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -295,504 +266,116 @@
         
         <section class="hero">
             <h1>Algorithms & Data Structures</h1>
-            <p>Restaurant App Performance Analysis - Comprehensive optimization strategy development and algorithmic enhancement planning</p>
+            <p>Restaurant App - Search, Filter & Data Processing Algorithms implemented through database query optimization and efficient data structures</p>
         </section>
 
         <section class="content">
-            <h2>About the Enhancement</h2>
-            <p>This project analyzes and plans optimization enhancements for the search, filter, and data processing algorithms within my restaurant mobile app originally created in CS 360: Mobile Architecture and Programming. The app was built using React Native and Firebase, allowing users to view restaurant lists, browse menu items, and manage user accounts. For CS 499 Milestone Three, I conducted comprehensive analysis of algorithmic efficiency and developed detailed optimization strategies, particularly focusing on search functionality, filtering mechanisms, and data structure improvements.</p>
+            <h2>Project Overview</h2>
+            <p>As part of the restaurant app database enhancement project, I implemented various algorithms and data structures to optimize search functionality, data filtering, and processing operations. This project demonstrates the practical application of algorithmic thinking in database design and query optimization.</p>
 
-            <div class="comparison-grid">
-                <div class="comparison-box before-box">
-                    <h4>Current Implementation Analysis</h4>
+            <div class="before-after">
+                <div class="before-section">
+                    <h3 style="color: #dc3545; margin-bottom: 1.5rem;">Before Enhancement</h3>
                     <ul>
-                        <li>Basic linear search through restaurant data (O(n))</li>
-                        <li>Simple text-based filtering mechanisms</li>
-                        <li>Limited optimization for larger datasets</li>
-                        <li>Basic sorting capabilities</li>
-                        <li>Standard data retrieval from SQLite</li>
-                        <li>Room for significant performance improvements</li>
+                        <li>Hardcoded data with no persistence</li>
+                        <li>Basic linear search through arrays</li>
+                        <li>No indexing or optimization</li>
+                        <li>Simple data structures without relationships</li>
+                        <li>Limited search and filter capabilities</li>
                     </ul>
                 </div>
-                <div class="comparison-box after-box">
-                    <h4>Planned Optimization Strategy</h4>
+                <div class="after-section">
+                    <h3 style="color: #28a745; margin-bottom: 1.5rem;">After Enhancement</h3>
                     <ul>
-                        <li>Efficient search algorithms with hash-based lookup design</li>
-                        <li>Advanced multi-criteria filtering system architecture</li>
-                        <li>Optimized data structures for faster retrieval planning</li>
-                        <li>Sophisticated sorting algorithm implementation strategy</li>
-                        <li>Strategic data caching and indexing methodology</li>
-                        <li>Performance monitoring and optimization framework</li>
+                        <li>Optimized database queries with indexes</li>
+                        <li>Complex JOIN operations for related data</li>
+                        <li>Efficient search and sorting algorithms</li>
+                        <li>Normalized database structure (9 tables)</li>
+                        <li>Advanced filtering and aggregation functions</li>
                     </ul>
                 </div>
             </div>
 
-            <h2>Algorithm Analysis and Optimization Strategy</h2>
-            <div class="analysis-section">
-                <h3 style="text-align: center; color: #667eea; margin-bottom: 1rem;">Performance Analysis Goals</h3>
-                <div class="analysis-grid">
-                    <div class="analysis-item">
-                        <span class="analysis-value">O(1)</span>
-                        <div class="analysis-label">Target Search Complexity</div>
-                    </div>
-                    <div class="analysis-item">
-                        <span class="analysis-value">Hash-based</span>
-                        <div class="analysis-label">Lookup Strategy</div>
-                    </div>
-                    <div class="analysis-item">
-                        <span class="analysis-value">Memory Efficient</span>
-                        <div class="analysis-label">Mobile Optimization</div>
-                    </div>
-                    <div class="analysis-item">
-                        <span class="analysis-value">Sub-100ms</span>
-                        <div class="analysis-label">Response Time Goal</div>
-                    </div>
+            <h2>Implemented Algorithms and Data Structures</h2>
+            <div class="algorithms-grid">
+                <div class="algorithm-card">
+                    <h4>Database Query Optimization</h4>
+                    <p>Implemented efficient SQL queries using JOINs, subqueries, and aggregate functions to minimize database access time and improve search performance.</p>
+                </div>
+                <div class="algorithm-card">
+                    <h4>Search Algorithms</h4>
+                    <p>Developed search functionality for restaurants, menu items, and orders using optimized database queries with appropriate indexing strategies.</p>
+                </div>
+                <div class="algorithm-card">
+                    <h4>Sorting and Filtering</h4>
+                    <p>Implemented sorting algorithms for restaurant ratings, prices, and categories with efficient filtering mechanisms for user preferences.</p>
+                </div>
+                <div class="algorithm-card">
+                    <h4>Data Structure Design</h4>
+                    <p>Designed normalized database schema with proper relationships, foreign keys, and indexing for optimal data access patterns.</p>
                 </div>
             </div>
 
-            <h2>Algorithm Enhancement Strategy</h2>
-            
-            <h3>Search Algorithm Analysis and Planning</h3>
-            <p>Through comprehensive analysis of the current linear search implementation, I identified significant opportunities for optimization and developed a multi-tiered enhancement approach:</p>
+            <h3>Database Query Optimization Techniques</h3>
+            <p>Implemented complex SQL operations to enhance data retrieval efficiency across the 9-table restaurant database system. This included utilizing JOIN operations to connect related data across tables, implementing aggregate functions for data analysis, and applying subqueries for complex filtering requirements.</p>
 
-            <h4>Hash-based Lookup System Design</h4>
-            <p>Planned implementation of sophisticated hash table structures for optimal restaurant lookup performance:</p>
-            <div class="code-snippet">
-// Conceptual Hash-based Restaurant Search Engine Design
-class RestaurantSearchEngine {
-  constructor(restaurants) {
-    // Primary hash map for O(1) ID lookup
-    this.restaurantMap = new Map();
-    
-    // Category index for filtered searches
-    this.categoryIndex = new Map();
-    
-    // Price range index for range queries
-    this.priceRangeIndex = new Map();
-    
-    this.buildOptimizedIndices(restaurants);
-  }
+            <h3>Performance Enhancement Strategies</h3>
+            <p>Applied strategic indexing techniques to optimize query performance, particularly for frequently accessed data such as restaurant searches, user favorites, and order processing. The indexing strategy focused on columns most commonly used in WHERE clauses and JOIN operations to minimize database access time.</p>
 
-  // Strategy for building efficient search indices
-  buildOptimizedIndices(restaurants) {
-    restaurants.forEach(restaurant => {
-      // Implement hash-based indexing strategy
-      this.restaurantMap.set(restaurant.id, restaurant);
-      
-      // Build category-based search optimization
-      this.addToCategoryIndex(restaurant);
-      
-      // Implement price range indexing
-      this.addToPriceIndex(restaurant);
-    });
-  }
-}
+            <h3>Advanced SQL Features Implementation</h3>
+            <p>Utilized advanced SQL features including aggregate functions for data analysis, complex JOIN operations to retrieve related information across multiple tables, and optimized query structures to support efficient search and filtering functionality within the mobile application environment.</p>
+
+            <h2>Challenges Faced and Solutions</h2>
+            <div class="challenges-section">
+                <h3 style="color: #856404; margin-bottom: 1.5rem;">Problem-Solving Approach</h3>
+                
+                <h4>Challenge: Complex Table Relationships</h4>
+                <p><strong>Problem:</strong> The order system was particularly complex, with one order containing multiple menu items, each with different quantities.</p>
+                <p><strong>Solution:</strong> Implemented a proper many-to-many relationship using Order_Items junction table with quantity tracking.</p>
+
+                <h4>Challenge: Query Performance Issues</h4>
+                <p><strong>Problem:</strong> Initial queries were slow and bottlenecks were difficult to identify.</p>
+                <p><strong>Solution:</strong> Used debugging tools to analyze query execution plans and strategically added indexes to frequently queried columns.</p>
+
+                <h4>Challenge: Data Synchronization</h4>
+                <p><strong>Problem:</strong> Synchronizing React Native app state with database state, especially for real-time cart updates.</p>
+                <p><strong>Solution:</strong> Implemented efficient state management patterns and optimized database update operations.</p>
             </div>
 
-            <h4>Binary Search Strategy for Sorted Data</h4>
-            <p>Analysis and planning for binary search implementation on sorted restaurant data:</p>
-            <div class="code-snippet">
-// Binary Search Strategy for Rating-based Queries
-function binarySearchStrategy(restaurants, targetRating) {
-  // Theoretical implementation for O(log n) search
-  let left = 0;
-  let right = restaurants.length - 1;
-  
-  // Strategy: Maintain sorted order for efficient searching
-  while (left <= right) {
-    const mid = Math.floor((left + right) / 2);
-    const midRating = restaurants[mid].rating;
-    
-    if (midRating === targetRating) {
-      return mid; // Found target rating
-    } else if (midRating < targetRating) {
-      left = mid + 1;
-    } else {
-      right = mid - 1;
-    }
-  }
-  
-  return left; // Insertion point for maintaining sort order
-}
+            <h2>Skills Developed</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h5>SQL Proficiency</h5>
+                    <p>Mastered complex JOIN queries, aggregate functions, and subqueries for efficient data retrieval and analysis.</p>
+                </div>
+                <div class="skill-item">
+                    <h5>Database Design</h5>
+                    <p>Applied normalization theory to create efficient table structures that avoid data duplication and maintain integrity.</p>
+                </div>
+                <div class="skill-item">
+                    <h5>Performance Optimization</h5>
+                    <p>Learned to identify bottlenecks and implement indexing strategies for improved query performance.</p>
+                </div>
+                <div class="skill-item">
+                    <h5>Algorithm Selection</h5>
+                    <p>Developed ability to choose appropriate data structures and algorithms based on specific performance requirements.</p>
+                </div>
             </div>
 
-            <h4>Trie Data Structure for Autocomplete Planning</h4>
-            <p>Designed trie implementation strategy for efficient autocomplete functionality:</p>
-            <div class="code-snippet">
-// Trie Implementation Strategy for Search Autocomplete
-class RestaurantTrieStrategy {
-  constructor() {
-    this.root = new TrieNode();
-  }
+            <h2>Technical Learning Outcomes</h2>
+            <p>Through this project, I gained practical experience in applying algorithmic thinking to real-world database problems. The implementation of efficient search algorithms, data filtering mechanisms, and performance optimization techniques demonstrates my understanding of how theoretical computer science concepts translate into practical software solutions.</p>
 
-  // Strategy for building efficient prefix search
-  insertRestaurantNames(restaurant) {
-    const words = restaurant.name.toLowerCase().split(' ');
-    
-    // Plan: Insert each word for comprehensive search coverage
-    words.forEach(word => {
-      let node = this.root;
-      
-      for (let char of word) {
-        if (!node.children[char]) {
-          node.children[char] = new TrieNode();
-        }
-        node = node.children[char];
-        // Strategy: Store restaurant references at each node
-        node.restaurants.push(restaurant);
-      }
-      
-      node.isEndOfWord = true;
-    });
-  }
+            <p>The normalized database design with 9 interconnected tables required careful consideration of data access patterns and algorithmic efficiency. By implementing proper indexing strategies and optimizing complex queries, I learned how algorithmic choices directly impact application performance in mobile development environments where memory and processing constraints are critical.</p>
 
-  // Planned search methodology for autocomplete
-  searchByPrefix(prefix) {
-    let node = this.root;
-    
-    // Navigate to prefix endpoint
-    for (let char of prefix.toLowerCase()) {
-      if (!node.children[char]) {
-        return []; // No matches found
-      }
-      node = node.children[char];
-    }
-    
-    // Return all restaurants matching prefix
-    return node.restaurants;
-  }
-}
-            </div>
+            <h2>Course Outcomes Alignment</h2>
+            <p><strong>Algorithms and Data Structures:</strong> Successfully designed efficient database queries, implemented search and sorting functionality, and selected appropriate data structures for optimal performance in a mobile application context.</p>
 
-            <h3>Advanced Filtering System Strategy</h3>
-            <p>The current simple filtering approach has been analyzed for optimization opportunities, leading to a sophisticated multi-criteria filtering strategy:</p>
-
-            <div class="code-snippet">
-// Multi-criteria Filtering Strategy with Index Optimization
-class RestaurantFilterStrategy {
-  constructor(restaurants) {
-    this.restaurants = restaurants;
-    this.indices = this.buildFilterIndices(restaurants);
-  }
-
-  // Strategy for pre-computed filter indices
-  buildFilterIndices(restaurants) {
-    const indices = {
-      cuisine: new Map(),
-      priceRange: new Map(),
-      rating: new Map(),
-      location: new Map()
-    };
-
-    // Plan: Build comprehensive indices for O(1) filter operations
-    restaurants.forEach(restaurant => {
-      this.addToIndex(indices.cuisine, restaurant.cuisine, restaurant);
-      this.addToIndex(indices.priceRange, this.getPriceRange(restaurant.price), restaurant);
-      this.addToIndex(indices.rating, Math.floor(restaurant.rating), restaurant);
-      this.addToIndex(indices.location, restaurant.neighborhood, restaurant);
-    });
-
-    return indices;
-  }
-
-  // Planned efficient filtering with set intersection
-  applyFiltersStrategy(filters) {
-    let results = new Set(this.restaurants);
-
-    // Strategy: Use pre-computed indices for fast filtering
-    Object.keys(filters).forEach(filterType => {
-      if (filters[filterType] && this.indices[filterType]) {
-        const filteredResults = new Set(this.indices[filterType].get(filters[filterType]) || []);
-        results = this.intersectSets(results, filteredResults);
-      }
-    });
-
-    return Array.from(results);
-  }
-}
-            </div>
-
-            <h2>Time Complexity Analysis</h2>
-            <table class="complexity-table">
-                <thead>
-                    <tr>
-                        <th>Operation</th>
-                        <th>Current Implementation</th>
-                        <th>Planned Optimization</th>
-                        <th>Expected Improvement</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Restaurant Search by Name</td>
-                        <td>O(n) linear search</td>
-                        <td>O(1) - O(log n) hybrid approach</td>
-                        <td>Significant performance gain</td>
-                    </tr>
-                    <tr>
-                        <td>Filter by Category</td>
-                        <td>O(n) iteration</td>
-                        <td>O(1) hash lookup</td>
-                        <td>Constant time filtering</td>
-                    </tr>
-                    <tr>
-                        <td>Sort by Rating</td>
-                        <td>O(n log n) standard sort</td>
-                        <td>O(n log n) + O(log n) search</td>
-                        <td>Pre-sorted with binary search</td>
-                    </tr>
-                    <tr>
-                        <td>Autocomplete Suggestions</td>
-                        <td>O(n * m) string matching</td>
-                        <td>O(k) where k = prefix length</td>
-                        <td>Dramatic improvement for suggestions</td>
-                    </tr>
-                    <tr>
-                        <td>Multi-criteria Filter</td>
-                        <td>O(n * f) iteration per filter</td>
-                        <td>O(r1 ∩ r2 ∩ ... ∩ rf) intersection</td>
-                        <td>Index-based optimization</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h2>Data Structure Optimization Strategy</h2>
-            
-            <h3>Memory-Efficient Caching Strategy</h3>
-            <div class="code-snippet">
-// LRU Cache Strategy for Frequently Accessed Data
-class LRUCacheStrategy {
-  constructor(capacity) {
-    this.capacity = capacity;
-    this.cache = new Map();
-  }
-
-  // Strategy for intelligent cache management
-  getCachedResult(key) {
-    if (this.cache.has(key)) {
-      // Move to end (most recently used)
-      const value = this.cache.get(key);
-      this.cache.delete(key);
-      this.cache.set(key, value);
-      return value;
-    }
-    return null;
-  }
-
-  // Planned cache optimization for search results
-  cacheSearchResult(key, value) {
-    if (this.cache.has(key)) {
-      this.cache.delete(key);
-    } else if (this.cache.size >= this.capacity) {
-      // Remove least recently used (first item)
-      const firstKey = this.cache.keys().next().value;
-      this.cache.delete(firstKey);
-    }
-    
-    this.cache.set(key, value);
-  }
-}
-
-// Usage strategy for search result caching
-const searchCacheStrategy = new LRUCacheStrategy(100);
-            </div>
-
-            <h3>Batch Processing Strategy for Large Datasets</h3>
-            <div class="code-snippet">
-// Efficient Batch Processing Strategy for Mobile Performance
-class BatchProcessingStrategy {
-  constructor(batchSize = 50) {
-    this.batchSize = batchSize;
-  }
-
-  // Strategy for processing large restaurant datasets efficiently
-  async processRestaurantsStrategy(restaurants, processingFunction) {
-    const results = [];
-    
-    // Plan: Process in batches to maintain UI responsiveness
-    for (let i = 0; i < restaurants.length; i += this.batchSize) {
-      const batch = restaurants.slice(i, i + this.batchSize);
-      
-      // Strategy: Use setTimeout to yield control to UI thread
-      const batchResults = await new Promise(resolve => {
-        setTimeout(() => {
-          const processed = batch.map(processingFunction);
-          resolve(processed);
-        }, 0);
-      });
-      
-      results.push(...batchResults);
-      
-      // Update progress for user feedback
-      this.updateProgress?.((i + this.batchSize) / restaurants.length);
-    }
-    
-    return results;
-  }
-}
-            </div>
-
-            <div class="algorithm-showcase">
-                <h3 style="color: #764ba2; margin-bottom: 1.5rem;">Algorithm Selection Rationale and Strategy</h3>
-                <ul>
-                    <li><strong>Hash Tables:</strong> Selected for restaurant ID lookups due to O(1) average-case performance potential</li>
-                    <li><strong>Binary Search:</strong> Planned for sorted data (ratings, prices) to achieve O(log n) search time</li>
-                    <li><strong>Trie Data Structure:</strong> Designed for autocomplete functionality to provide rapid suggestions</li>
-                    <li><strong>Set Intersection:</strong> Strategy for multi-criteria filtering to efficiently combine filter results</li>
-                    <li><strong>LRU Cache:</strong> Planned implementation to store frequently accessed search results and reduce computation</li>
-                </ul>
-            </div>
-
-            <h2>Course Outcomes Achieved</h2>
-            
-            <h3>Design and Evaluate Computing Solutions</h3>
-            <p>This enhancement analysis demonstrates my ability to design and evaluate computing solutions using algorithmic principles. I analyzed the performance bottlenecks in the original linear search implementation and developed strategic plans for appropriate algorithms and data structures to solve performance problems while managing trade-offs between memory usage and processing speed.</p>
-
-            <h3>Innovative Techniques and Tools</h3>
-            <p>The analysis showcases research into well-founded and innovative techniques in computing practices. By planning modern JavaScript optimization techniques, advanced React Native performance optimization methods, and mobile-specific algorithm design patterns, I developed strategies that would deliver significant value to users through improved performance.</p>
-
-            <h2>Research and Analysis Methodology</h2>
-            
-            <h3>Performance Bottleneck Identification</h3>
-            <p><strong>Challenge Analysis:</strong> Current linear search becomes inefficient with larger datasets (1000+ restaurants)<br>
-            <strong>Planned Solution:</strong> Hybrid search approach combining hash tables for exact matches and binary search for range queries</p>
-
-            <h3>Memory Management Strategy</h3>
-            <p><strong>Mobile Constraint Analysis:</strong> Mobile devices have limited memory for large datasets<br>
-            <strong>Strategic Solution:</strong> Intelligent data pagination and memory-efficient data structures with LRU caching implementation plan</p>
-
-            <h3>Real-time Filtering Requirements</h3>
-            <p><strong>User Experience Analysis:</strong> Users expect instant filtering results while typing<br>
-            <strong>Optimization Strategy:</strong> Debounced search with pre-computed filter indices for sub-100ms response times</p>
-
-            <h2>Learning Outcomes and Professional Development</h2>
-            
-            <p>Through this algorithm analysis and optimization planning, I deepened my understanding of:</p>
-            <ul>
-                <li><strong>Algorithm Selection Methodology:</strong> Learning when to use specific algorithms based on data characteristics and performance requirements</li>
-                <li><strong>Mobile Performance Constraints:</strong> Understanding how mobile device limitations influence algorithm design decisions</li>
-                <li><strong>Performance Analysis Techniques:</strong> Using theoretical analysis to identify bottlenecks and plan improvements</li>
-                <li><strong>User Experience Impact:</strong> Connecting algorithmic efficiency directly to user satisfaction and app usability</li>
-            </ul>
-
-            <h3>Problem-Solving Methodology</h3>
-            <ol>
-                <li><strong>Analysis:</strong> Evaluated time and space complexity of existing algorithms</li>
-                <li><strong>Research:</strong> Investigated industry best practices for mobile algorithm optimization</li>
-                <li><strong>Planning:</strong> Developed comprehensive optimization strategies incrementally</li>
-                <li><strong>Strategy Development:</strong> Created detailed implementation roadmaps with performance goals</li>
-                <li><strong>Validation Planning:</strong> Designed methods to measure theoretical performance improvements</li>
-            </ol>
-
-            <h2>Technical Research and Analysis</h2>
-            
-            <h3>Industry Best Practices Research</h3>
-            <p>Conducted comprehensive research into mobile app performance optimization strategies:</p>
-            <ul>
-                <li><strong>React Native Performance:</strong> Studied React Native optimization patterns and performance monitoring techniques</li>
-                <li><strong>Mobile Algorithm Design:</strong> Researched constraints and considerations for mobile device algorithm implementation</li>
-                <li><strong>Search Optimization:</strong> Analyzed industry-standard approaches to search functionality in mobile applications</li>
-                <li><strong>Caching Strategies:</strong> Investigated memory management and caching patterns for mobile environments</li>
-            </ul>
-
-            <h3>Theoretical Performance Analysis</h3>
-            <p>Developed comprehensive analysis of current vs. optimized algorithm performance:</p>
-            <ul>
-                <li><strong>Time Complexity Analysis:</strong> Calculated theoretical improvements from O(n) to O(1) and O(log n) operations</li>
-                <li><strong>Space Complexity Considerations:</strong> Balanced memory usage with performance gains for mobile constraints</li>
-                <li><strong>Trade-off Analysis:</strong> Evaluated benefits and costs of different optimization strategies</li>
-                <li><strong>Scalability Planning:</strong> Designed solutions that scale efficiently with growing datasets</li>
-            </ul>
-
-            <h2>Strategic Implementation Planning</h2>
-            
-            <h3>Phase 1: Analysis and Foundation</h3>
-            <ul>
-                <li>Complete performance profiling of current search and filter operations</li>
-                <li>Establish baseline metrics for comparison with optimized implementations</li>
-                <li>Design comprehensive test scenarios for validation</li>
-            </ul>
-
-            <h3>Phase 2: Core Algorithm Optimization</h3>
-            <ul>
-                <li>Implement hash-based lookup systems for primary search operations</li>
-                <li>Develop binary search functionality for sorted data operations</li>
-                <li>Create trie data structure for autocomplete functionality</li>
-            </ul>
-
-            <h3>Phase 3: Advanced Optimization Features</h3>
-            <ul>
-                <li>Implement intelligent caching strategies for frequently accessed data</li>
-                <li>Develop batch processing capabilities for large dataset handling</li>
-                <li>Create performance monitoring and optimization feedback systems</li>
-            </ul>
-
-            <h2>Professional Development Impact</h2>
-            
-            <h3>Technical Analysis Skills</h3>
-            <p>This project significantly enhanced my ability to:</p>
-            <ul>
-                <li><strong>Algorithm Analysis:</strong> Systematically evaluate algorithm efficiency and identify optimization opportunities</li>
-                <li><strong>Performance Planning:</strong> Develop comprehensive strategies for system performance improvement</li>
-                <li><strong>Technical Research:</strong> Investigate and synthesize industry best practices for specific technical challenges</li>
-                <li><strong>Constraint Analysis:</strong> Understand and plan for platform-specific limitations and requirements</li>
-            </ul>
-
-            <h3>Strategic Thinking Development</h3>
-            <p>The planning process strengthened my strategic thinking abilities:</p>
-            <ul>
-                <li><strong>Systematic Approach:</strong> Breaking down complex optimization challenges into manageable components</li>
-                <li><strong>Trade-off Analysis:</strong> Evaluating competing priorities and making informed technical decisions</li>
-                <li><strong>Implementation Planning:</strong> Creating realistic roadmaps for complex technical enhancements</li>
-                <li><strong>Risk Assessment:</strong> Identifying potential challenges and developing mitigation strategies</li>
-            </ul>
-
-            <h2>Career Preparation and Application</h2>
-            
-            <h3>IT Infrastructure Consulting Relevance</h3>
-            <p>The skills developed through this algorithm analysis project directly prepare me for my role with Kyndryl Japan:</p>
-            <ul>
-                <li><strong>Performance Analysis:</strong> Ability to analyze existing systems and identify optimization opportunities</li>
-                <li><strong>Strategic Planning:</strong> Skills in developing comprehensive improvement strategies for complex technical systems</li>
-                <li><strong>Client Communication:</strong> Experience in documenting and presenting technical analysis in accessible formats</li>
-                <li><strong>Solution Architecture:</strong> Understanding of how algorithm selection impacts overall system performance</li>
-            </ul>
-
-            <h3>Continuous Learning Mindset</h3>
-            <p>This project reinforced the importance of continuous learning in technology:</p>
-            <ul>
-                <li><strong>Research Skills:</strong> Ability to investigate and understand new technologies and optimization techniques</li>
-                <li><strong>Analytical Thinking:</strong> Systematic approach to problem analysis and solution development</li>
-                <li><strong>Adaptability:</strong> Willingness to challenge existing implementations and seek better solutions</li>
-                <li><strong>Professional Growth:</strong> Understanding that optimization is an ongoing process requiring continuous attention</li>
-            </ul>
-
-            <h2>Reflection on Learning Process</h2>
-            
-            <h3>Understanding Algorithm Selection</h3>
-            <p>This analysis project taught me that algorithm selection is not just about theoretical efficiency, but requires careful consideration of:</p>
-            <ul>
-                <li><strong>Platform Constraints:</strong> Mobile devices have specific memory and processing limitations</li>
-                <li><strong>User Experience:</strong> Algorithm efficiency directly impacts user satisfaction and app usability</li>
-                <li><strong>Data Characteristics:</strong> The nature of the data being processed influences optimal algorithm choice</li>
-                <li><strong>Scalability Requirements:</strong> Solutions must be designed to handle growth in data size and user base</li>
-            </ul>
-
-            <h3>Importance of Strategic Planning</h3>
-            <p>The comprehensive planning approach demonstrated that:</p>
-            <ul>
-                <li><strong>Analysis Before Implementation:</strong> Thorough analysis prevents costly implementation mistakes</li>
-                <li><strong>Documented Decision Making:</strong> Clear documentation of rationale supports future development and maintenance</li>
-                <li><strong>Incremental Improvement:</strong> Breaking optimization into phases makes complex improvements manageable</li>
-                <li><strong>Performance Measurement:</strong> Establishing clear goals and metrics is essential for validating improvements</li>
-            </ul>
+            <p><strong>Technologies and Tools:</strong> Integrated algorithmic solutions with modern JavaScript and React Native, demonstrating the practical application of computer science theory in contemporary software development frameworks.</p>
 
             <h2>Conclusion</h2>
-            <p>This algorithm analysis and optimization planning project demonstrates my ability to approach complex performance challenges systematically and develop comprehensive improvement strategies. Through detailed analysis of existing algorithms and strategic planning for optimization, I've shown my understanding of both theoretical computer science concepts and practical implementation considerations.</p>
+            <p>This project demonstrates my ability to apply algorithmic thinking and data structure design principles to solve real-world problems. The transformation from a simple hardcoded app to a sophisticated database-driven system showcases my understanding of how proper algorithm selection and implementation can dramatically improve application performance and user experience.</p>
 
-            <p>The analytical methodology and strategic planning skills developed through this project are directly applicable to professional software development and IT infrastructure consulting roles. The ability to analyze system performance, identify optimization opportunities, and develop realistic improvement strategies will be valuable throughout my career in technology.</p>
-
-            <p>Most importantly, this project reinforced that effective algorithm optimization requires not just theoretical knowledge, but deep understanding of the specific constraints, requirements, and goals of the target platform and user base. This holistic approach to performance optimization will guide my professional development and technical decision-making in enterprise environments.</p>
+            <p>The hands-on experience with complex SQL operations, performance optimization, and efficient data processing provides a solid foundation for tackling algorithmic challenges in professional software development environments.</p>
         </section>
     </main>
 
