@@ -335,61 +335,13 @@
             </div>
 
             <h3>Password Security Implementation</h3>
-            <div class="code-section">
-                <span class="comment">// Successfully implemented secure password hashing with salt</span><br>
-                import CryptoJS from 'crypto-js';<br><br>
-                
-                class SecurityManager {<br>
-                &nbsp;&nbsp;static generateSalt() {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;return CryptoJS.lib.WordArray.random(128/8).toString();<br>
-                &nbsp;&nbsp;}<br><br>
-                
-                &nbsp;&nbsp;static hashPassword(password, salt) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;return CryptoJS.SHA256(password + salt).toString();<br>
-                &nbsp;&nbsp;}<br><br>
-                
-                &nbsp;&nbsp;static async createUser(username, email, password) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;const salt = this.generateSalt();<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;const passwordHash = this.hashPassword(password, salt);<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;const query = "INSERT INTO Users (username, email, password_hash, salt) VALUES (?, ?, ?, ?)";<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;return await database.executeSql(query, [username, email, passwordHash, salt]);<br>
-                &nbsp;&nbsp;}<br>
-                }
-            </div>
+            <p>Successfully implemented secure password hashing with salt generation for the user authentication system. The implementation includes SHA-256 hashing algorithms combined with randomly generated salt values to ensure password security. Each user password is processed through this hashing mechanism before being stored in the database, providing robust protection against potential security threats.</p>
 
             <h3>SQL Injection Prevention Implementation</h3>
-            <div class="code-section">
-                <span class="comment">// Successfully implemented parameterized queries to prevent SQL injection</span><br>
-                class DatabaseManager {<br>
-                &nbsp;&nbsp;static async safeQuery(query, params = []) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;try {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// All queries use parameterized statements</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const result = await database.executeSql(query, params);<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return { success: true, data: result };<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;} catch (error) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.error('Database query error:', error);<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return { success: false, error: error.message };<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                &nbsp;&nbsp;}<br>
-                }
-            </div>
+            <p>Implemented comprehensive SQL injection prevention measures throughout the database system by utilizing parameterized queries and prepared statements for all database operations. This security approach ensures that user input is properly sanitized and separated from SQL command structures, effectively preventing malicious SQL injection attacks while maintaining system integrity.</p>
 
             <h2>Performance Optimization Implementation</h2>
-            <div class="code-section">
-                <span class="comment">// Implemented safe search function with optimized queries</span><br>
-                static async searchRestaurants(searchTerm, category) {<br>
-                &nbsp;&nbsp;const query = `SELECT r.*,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;c.category_name, AVG(rev.rating) as avg_rating<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;FROM Restaurants r LEFT JOIN Categories c ON r.category_id = c.category_id<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;LEFT JOIN Reviews rev ON r.restaurant_id = rev.restaurant_id<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;WHERE (r.name LIKE ? OR r.description LIKE ?)<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;AND (? IS NULL OR c.category_name = ?)<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;GROUP BY r.restaurant_id ORDER BY avg_rating DESC`;<br><br>
-                
-                &nbsp;&nbsp;const searchPattern = `%${searchTerm}%`;<br>
-                &nbsp;&nbsp;return await this.safeQuery(query, [searchPattern, searchPattern, category, category]);<br>
-                }
-            </div>
+            <p>Implemented comprehensive performance optimization strategies throughout the database system, focusing on query efficiency and data access patterns. The optimization approach included strategic indexing of frequently queried columns, efficient JOIN operations across related tables, and optimized search functionality for restaurant data retrieval. These enhancements significantly improved the overall system responsiveness and user experience within the mobile application environment.</p>
 
             <h2>Problem-Solving Approach</h2>
             <p>When encountering database implementation challenges, I followed a systematic approach:</p>
